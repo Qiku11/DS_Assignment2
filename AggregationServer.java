@@ -49,7 +49,6 @@ public class AggregationServer {
 
                 if (hotTime > coldTime){
                     String data = new String(Files.readAllBytes(hotFile));
-                    System.out.println("Debug");
                     if (checkValid(data) == 1){
                         Files.copy(hotFile, coldFile,StandardCopyOption.REPLACE_EXISTING);
                     } else {
@@ -58,6 +57,8 @@ public class AggregationServer {
                         } else {
                             Files.delete(hotFile);
                             Files.delete(coldFile);
+                            Files.createFile(hotFile);
+                            Files.createFile(coldFile);
                             return;
                         }
                     }
@@ -72,6 +73,8 @@ public class AggregationServer {
                         } else {
                             Files.delete(hotFile);
                             Files.delete(coldFile);
+                            Files.createFile(hotFile);
+                            Files.createFile(coldFile);
                             return;
                         }
                     }
@@ -135,7 +138,9 @@ public class AggregationServer {
     public synchronized void storeData(JSONObject data){
         synchronized (storage){
             storage.put(data.getString("id"), data);
-            lastConneciton.put(data.getString("id"), System.currentTimeMillis());
+            synchronized (lastConneciton){
+                lastConneciton.put(data.getString("id"), System.currentTimeMillis());
+            }
         }
     }
 // mutex function to copy the content of hotfile to cold file (double back up in case server failure during file IO)
@@ -188,11 +193,15 @@ public class AggregationServer {
 
             // remove all the data that's older than 5 minutes
             long currentTime = System.currentTimeMillis();
+            // a json array called loser
+
             synchronized (storage) {
                 for (String key : lastConneciton.keySet()) {
                     if (currentTime - lastConneciton.getLong(key) > 30000) {
                         storage.remove(key);
-                        lastConneciton.remove(key);
+                        synchronized(lastConneciton){
+                            lastConneciton.remove(key);
+                        }
                     }
                 }
             }
@@ -223,7 +232,6 @@ public class AggregationServer {
                     String [] split = currentLine.trim().split(" ", 3);
                     String method = split[0];
                     if (method.matches(".*GET.*")){
-                        // send the data back to the client
                         JSONObject result = new JSONObject();
                         while ((currentLine = input.readLine()) != null && !currentLine.isEmpty()){
                             if (currentLine.startsWith("Lamport-Clock:")){
@@ -233,8 +241,6 @@ public class AggregationServer {
                                 break;
                             }
                         }
-                        // result is a json object that contains all the data
-                        // send the result back to the client
                         result = AggregationServer.storage;
                         server.myClock.tick();
                         server.myClock.log("Agg: send GET response");
@@ -263,17 +269,9 @@ public class AggregationServer {
                         while ((currentLine = input.readLine()) != null && !currentLine.isEmpty()){
                             if (currentLine.startsWith("{")){
                                 code = 200;
-                                String[] entries = currentLine.split(",");
-                                for (String entry : entries) {
-                                    String[] tokens = entry.split(":", 2);
-                                    //strip off the double quotes and turn token 0 to lower case
-                                    
-                                    tokens[0] = tokens[0].substring(1, tokens[0].length() - 1).toLowerCase();
-                                    tokens[1] = tokens[1].substring(1, tokens[1].length() - 1);
-                                    currentData.put(tokens[0], tokens[1]);
-                                }
+                                currentData = new JSONObject(currentLine);
                                 if (currentData.length() > 1){
-                                    if (!server.storage.has(currentData.getString("id"))){
+                                    if (!AggregationServer.storage.has(currentData.getString("id"))){
                                         code = 201;
                                     }
                                     server.storeData(currentData);

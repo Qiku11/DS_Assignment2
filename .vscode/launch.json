@@ -32,7 +32,7 @@
             "request": "launch",
             "mainClass": "PUTClient",
             "projectName": "DS_Assignment2_1e2e24e6",
-            "args": "127.0.0.1:4567 Weatherdata/2.txt"
+            "args": "127.0.0.1:4567 Weatherdata/3.txt"
         }
     ]
 }

@@ -1,4 +1,4 @@
-ID: IDS60902
+id: IDS60902
 Name: Sydney (CBD)
 State: NSW
 Time Zone: AEST
@@ -15,7 +15,7 @@ Rel Hum: 63
 Wind Dir: E
 Wind Spd km/h: 16
 Wind Spd kt: 9
-ID: IDS60901
+id: IDS60901
 Name: Adelaide (West Terrace / ngayirdapira)
 State: SA
 Time Zone: CST
@@ -32,7 +32,7 @@ Rel Hum: 60
 Wind Dir: S
 Wind Spd km/h: 15
 Wind Spd kt: 8
-ID: IDS60903
+id: IDS60903
 Name: Melbourne (CBD)
 State: VIC
 Time Zone: AEST
@@ -50,7 +50,7 @@ Wind Dir: WNW
 Wind Spd km/h: 15
 Wind Spd kt: 8
 
-ID: IDS60904
+id: IDS60904
 Name: Brisbane (CBD)
 State: QLD
 Time Zone: AEST

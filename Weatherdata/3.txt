@@ -1,4 +1,4 @@
-ID:
+id:
 Name: Perth (Kings Park)
 State: WA
 Time Zone: AWST
@@ -16,7 +16,7 @@ Wind Dir: NW
 Wind Spd km/h: 18
 Wind Spd kt: 10
 
-ID: IDS60906
+id: IDS60906
 Name: Darwin (CBD)
 State: NT
 Time Zone: ACST

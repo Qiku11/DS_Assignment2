@@ -73,6 +73,9 @@ public class PUTClient {
             
             BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(mySocket.getOutputStream()));
             BufferedReader reader = new BufferedReader(new InputStreamReader(mySocket.getInputStream()));
+            if (currentJSON.getString("id").length() < 2){
+                System.out.println("invalid entry, id is empty");
+                continue;}
             // construct and send the http PUT request
             String request = "PUT /weather.json HTTP/1.1\r\n" +
             "Content-Type: application/json\r\n" +
