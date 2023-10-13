@@ -1,0 +1,1 @@
+java -cp Bytecode:.:jar/json.jar AggregationServer 4567

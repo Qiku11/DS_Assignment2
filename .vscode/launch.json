@@ -1,0 +1,38 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        
+        {
+            "type": "java",
+            "name": "Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "AggregationServer",
+            "request": "launch",
+            "mainClass": "AggregationServer",
+            "projectName": "DS_Assignment2_1e2e24e6"
+        },
+        {
+            "type": "java",
+            "name": "GETClient",
+            "request": "launch",
+            "mainClass": "GETClient",
+            "projectName": "DS_Assignment2_1e2e24e6",
+            "args": "127.0.0.1:4567"
+        },
+        {
+            "type": "java",
+            "name": "PUTClient",
+            "request": "launch",
+            "mainClass": "PUTClient",
+            "projectName": "DS_Assignment2_1e2e24e6",
+            "args": "127.0.0.1:4567 Weatherdata/2.txt"
+        }
+    ]
+}

@@ -1,0 +1,69 @@
+ID: IDS60902
+Name: Sydney (CBD)
+State: NSW
+Time Zone: AEST
+Lat: -33.9
+Lon: 151.2
+Local Date Time: 15/04:30pm
+Local Date Time Full: 20230715163000
+Air Temp: 21.2
+Apparent Temp: 24.0
+Cloud: Mostly sunny
+Dewpt: 14.5
+Press: 1018.0
+Rel Hum: 63
+Wind Dir: E
+Wind Spd km/h: 16
+Wind Spd kt: 9
+ID: IDS60901
+Name: Adelaide (West Terrace / ngayirdapira)
+State: SA
+Time Zone: CST
+Lat: -34.9
+Lon: 138.6
+Local Date Time: 15/04:00pm
+Local Date Time Full: 20230715160000
+Air Temp: 13.3
+Apparent Temp: 9.5
+Cloud: Partly cloudy
+Dewpt: 5.7
+Press: 1023.9
+Rel Hum: 60
+Wind Dir: S
+Wind Spd km/h: 15
+Wind Spd kt: 8
+ID: IDS60903
+Name: Melbourne (CBD)
+State: VIC
+Time Zone: AEST
+Lat: -37.8
+Lon: 144.9
+Local Date Time: 15/04:45pm
+Local Date Time Full: 20230715164500
+Air Temp: 19.8
+Apparent Temp: 21.2
+Cloud: Partly cloudy
+Dewpt: 11.3
+Press: 1015.6
+Rel Hum: 54
+Wind Dir: WNW
+Wind Spd km/h: 15
+Wind Spd kt: 8
+
+ID: IDS60904
+Name: Brisbane (CBD)
+State: QLD
+Time Zone: AEST
+Lat: -27.5
+Lon: 153.0
+Local Date Time: 15/04:15pm
+Local Date Time Full: 20230715161500
+Air Temp: 25.4
+Apparent Temp: 27.8
+Cloud: Partly cloudy
+Dewpt: 16.2
+Press: 1018.5
+Rel Hum: 59
+Wind Dir: SE
+Wind Spd km/h: 14
+Wind Spd kt: 7
